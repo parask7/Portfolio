@@ -3,27 +3,27 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Paras Kukreja | Game Developer</title>
+  <title>Paras Kukreja | Unity Game Programmer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Paras Kukreja - Unity Game Programmer specializing in gameplay systems, AI mechanics, and scalable C# architecture." />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="nav-container">
       <div class="logo">Paras Kukreja</div>
       <nav>
         <a href="#hero">Home</a>
         <a href="#about">About</a>
-        <a href="#skills">Skills</a>
+        <a href="#skills">Technical Skills</a>
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
-        <a href="#certificates">Certificates</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -37,35 +37,28 @@
         frameborder="0" allow="autoplay; fullscreen">
       </iframe>
     </div>
+
     <div class="hero-overlay"></div>
 
     <div class="container hero-content">
-      <h1>Hi, I'm <span>Paras Kukreja</span></h1>
-      <p>Unity Game Developer building polished gameplay systems and immersive 2D & 3D experiences.</p>
+      <h1>Paras Kukreja</h1>
+      <p>
+        Unity Game Programmer focused on gameplay systems, AI behavior logic,
+        and scalable C# architecture for interactive experiences.
+      </p>
+
       <div class="hero-buttons">
         <a href="#projects" class="btn primary">View Projects</a>
         <a href="Resume.pdf" class="btn secondary" target="_blank">Download Resume</a>
       </div>
+
       <div class="social-links">
-        <a href="https://github.com/parask7" target="_blank" aria-label="GitHub">
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/paraskukreja7" target="_blank" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-        <a href="https://paras-kukreja.itch.io/" target="_blank" aria-label="Itch.io">
-          <i class="fa-brands fa-itch-io"></i>
-        </a>
-        <a href="https://youtube.com/@paraskukrejaaa?si=M32TZoFSTWK_Etct" target="_blank" aria-label="YouTube">
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-        <a href="https://www.instagram.com/paraskukrejaaa/" target="_blank" aria-label="Instagram">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
+        <a href="https://github.com/parask7" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/paraskukreja7" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://paras-kukreja.itch.io/" target="_blank"><i class="fa-brands fa-itch-io"></i></a>
+        <a href="https://youtube.com/@paraskukrejaaa?si=M32TZoFSTWK_Etct" target="_blank"><i class="fa-brands fa-youtube"></i></a>
       </div>
-
     </div>
-
   </section>
 
   <!-- ABOUT -->
@@ -77,24 +70,30 @@
       <div>
         <h2>About Me</h2>
         <p>
-          I’m a Unity game programmer specializing in 2D and 3D gameplay systems, smooth controls,
-          performance-focused code, and scalable architectures. I love building fun, responsive,
-          and technically solid games for PC, mobile, and WebGL.
+          I am a Computer Science undergraduate specializing in Unity gameplay programming.
+          My focus is on designing clean, modular C# systems including player controllers,
+          AI state machines, combat mechanics, and scalable game architecture.
+        </p>
+        <p>
+          I prioritize maintainable code structure, performance awareness,
+          and system-driven design over visual polish alone.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- TECHNICAL SKILLS -->
   <section class="section container" id="skills">
-    <h2>Skills</h2>
+    <h2>Technical Skills</h2>
     <div class="skills-grid">
-      <div class="skill-card">Unity (2D & 3D)</div>
-      <div class="skill-card">C# Programming</div>
-      <div class="skill-card">Gameplay Systems</div>
-      <div class="skill-card">UI Systems</div>
-      <div class="skill-card">WebGL</div>
-      <div class="skill-card">Performance Optimization</div>
+      <div class="skill-card">Unity Engine (2D & 3D)</div>
+      <div class="skill-card">C# (OOP, Events, Interfaces)</div>
+      <div class="skill-card">Finite State Machines</div>
+      <div class="skill-card">Gameplay Systems Design</div>
+      <div class="skill-card">Enemy AI (State-Based)</div>
+      <div class="skill-card">Input System</div>
+      <div class="skill-card">UI Canvas Systems</div>
+      <div class="skill-card">Git & Version Control</div>
     </div>
   </section>
 
@@ -102,27 +101,48 @@
   <section class="section container" id="projects">
     <h2>Projects</h2>
 
+    <!-- Project 1 -->
     <div class="project-row">
       <div class="project-video">
         <iframe src="https://www.youtube.com/embed/Ht4DnC66kzA" allowfullscreen></iframe>
       </div>
       <div class="project-info">
-        <h3>Magic Snake</h3>
-        <p>A modern snake game with grid movement, animations, mobile controls, and WebGL support.</p>
+        <h3>Magic Snake 2D</h3>
+        <p>
+          Grid-based gameplay system featuring structured movement logic,
+          collision handling, scoring systems, and responsive input architecture.
+        </p>
+        <ul>
+          <li>Custom grid movement implementation</li>
+          <li>Mobile & keyboard input handling</li>
+          <li>Gameplay loop & scoring system</li>
+          <li>Web deployment optimization</li>
+        </ul>
         <a class="btn small" href="https://paras-kukreja.itch.io/magic-snake-2d" target="_blank">Play</a>
-        <a class="btn small" href="https://github.com/parask7/Magic-Snake-2D" target="_blank">Code</a>
+        <a class="btn small" href="https://github.com/parask7/Magic-Snake-2D" target="_blank">Source Code</a>
       </div>
     </div>
 
+    <!-- Project 2 -->
     <div class="project-row reverse">
       <div class="project-video">
         <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
       </div>
       <div class="project-info">
-        <h3>Robo Strike</h3>
-        <p>2.5D action platformer with combat systems, enemy AI, and power-ups.</p>
+        <h3>Robo Strike (In Progress)</h3>
+        <p>
+          Action platformer prototype focused on modular combat mechanics
+          and state-based enemy AI architecture.
+        </p>
+        <ul>
+          <li>Finite State Machine for enemy behavior</li>
+          <li>Combat & damage systems</li>
+          <li>Power-up system architecture</li>
+          <li>Health & feedback systems</li>
+        </ul>
       </div>
     </div>
+
   </section>
 
   <!-- EDUCATION -->
@@ -131,43 +151,21 @@
     <div class="timeline">
       <div class="timeline-item">
         <h3>2023 – Present</h3>
-        <p><strong>B.Tech in Computer Science</strong></p>
-        <p>Focused on programming, game development, and software engineering.</p>
+        <p><strong>B.Tech in Computer Science and Engineering</strong></p>
+        <p>Amity University Chhattisgarh</p>
       </div>
       <div class="timeline-item">
         <h3>2021 – 2023</h3>
-        <p><strong>Higher Secondary</strong></p>
-        <p>Physics & Mathematics specialization.</p>
+        <p><strong>Higher Secondary Education</strong></p>
+        <p>Physics & Mathematics</p>
       </div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATES -->
-  <section class="section container" id="certificates">
-    <h2>Certificates</h2>
-    <div class="cert-grid">
-
-      <div class="cert-card">
-        <img src="images/certificate game development.jpeg" alt="Game Development Certificate">
-        <h3>Unity Game Development Beginner to Pro</h3>
-        <p>LCMGO · 2025</p>
-        <a class="btn small" href="images/certificate game development.jpeg" target="_blank">View</a>
-      </div>
-
-      <div class="cert-card">
-        <img src="images/udemy game development certificate.png" alt="Udemy Certificate">
-        <h3>Complete C# Unity 3D Game Development</h3>
-        <p>Udemy / GameDev.tv · 2025</p>
-        <a class="btn small" href="images/udemy game development certificate.png" target="_blank">View</a>
-      </div>
-
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="section container center" id="contact">
-    <h2>Contact Me</h2>
-    <p>Let’s talk about games, projects, or opportunities 🎮</p>
+    <h2>Contact</h2>
+    <p>Open to internship opportunities and collaborative projects.</p>
 
     <form class="contact-form" action="https://formspree.io/f/xykknqpw" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
@@ -178,12 +176,10 @@
   </section>
 
   <footer>
-
-
     © 2026 Paras Kukreja | All Rights Reserved
   </footer>
 
   <script src="script.js"></script>
-</body>
 
+</body>
 </html>
