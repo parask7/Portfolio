@@ -1,229 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <title>Paras Kukreja | Unity Game Programmer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Paras Kukreja - Unity Game Programmer specializing in gameplay systems, AI mechanics, and scalable C# architecture." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Paras Kukreja | Unity Game Programmer</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ================= BASE ================= */
+:root {
+  --bg: #0a0f1c;
+  --card: #111827;
+  --accent: #00f0ff;
+  --accent2: #8b5cf6;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ================= NAV ================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: rgba(2,6,23,0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #1f2937;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* ================= HERO ================= */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(#00f0ff11 1px, transparent 1px),
+                    linear-gradient(90deg, #00f0ff11 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #00f0ff, #8b5cf6);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  margin: 20px 0;
+  color: var(--muted);
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.primary {
+  background: linear-gradient(90deg, #00f0ff, #8b5cf6);
+  color: black;
+}
+
+.secondary {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* SOCIAL */
+.social-links a {
+  margin: 0 10px;
+  color: var(--muted);
+}
+
+.social-links a:hover {
+  color: var(--accent);
+}
+
+/* ================= SECTIONS ================= */
+.section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* ================= ABOUT ================= */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+}
+
+/* ================= CARDS ================= */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 15px;
+}
+
+.skill-card {
+  padding: 15px;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  background: var(--card);
+  font-family: 'JetBrains Mono', monospace;
+  transition: 0.3s;
+}
+
+.skill-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+/* ================= PROJECTS ================= */
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.project-row.reverse {
+  direction: rtl;
+}
+
+.project-row.reverse * {
+  direction: ltr;
+}
+
+.project-video iframe {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.project-info ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.small {
+  padding: 8px 14px;
+  font-size: 12px;
+}
+
+/* ================= TIMELINE ================= */
+.timeline-item {
+  border-left: 2px solid var(--accent);
+  padding-left: 15px;
+  margin: 20px 0;
+}
+
+/* ================= FORM ================= */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  background: #020617;
+  border: 1px solid #1f2937;
+  color: white;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: var(--muted);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+  .about-grid,
+  .project-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="nav-container">
-      <div class="logo">Paras Kukreja</div>
-      <nav>
-        <a href="#hero">Home</a>
-        <a href="#about">About</a>
-        <a href="#focus">Engineering Focus</a>
-        <a href="#skills">Technical Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">Paras Kukreja</div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#focus">Focus</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>Unity Game Programmer</h1>
+    <p>
+      Building gameplay systems, AI logic, and scalable C# architecture 
+      for immersive interactive experiences.
+    </p>
+
+    <a href="#projects" class="btn primary">View Projects</a>
+    <a href="Resume.pdf" class="btn secondary">Download Resume</a>
+
+    <div class="social-links">
+      <a href="https://github.com/parask7"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#"><i class="fa-brands fa-itch-io"></i></a>
     </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-video-bg">
-      <iframe
-        src="https://www.youtube.com/embed/Ht4DnC66kzA?autoplay=1&mute=1&loop=1&playlist=Ht4DnC66kzA&controls=0&modestbranding=1&iv_load_policy=3&playsinline=1"
-        frameborder="0" allow="autoplay; fullscreen">
-      </iframe>
-    </div>
-
-    <div class="hero-overlay"></div>
-
-    <div class="container hero-content">
-      <h1>Paras Kukreja</h1>
-      <p>
-        Unity Game Programmer focused on gameplay systems, AI behavior logic,
-        and scalable C# architecture for interactive experiences.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#projects" class="btn primary">View Projects</a>
-        <a href="Resume.pdf" class="btn secondary" target="_blank">Download Resume</a>
-      </div>
-
-      <div class="social-links">
-        <a href="https://github.com/parask7" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/paraskukreja7" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://paras-kukreja.itch.io/" target="_blank"><i class="fa-brands fa-itch-io"></i></a>
-        <a href="https://youtube.com/@paraskukrejaaa?si=M32TZoFSTWK_Etct" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
 <!-- ABOUT -->
-  <section class="section container" id="about">
-    <div class="about-grid">
-      <div class="about-image">
-        <img src="images/aboutSectionImage.png" alt="Paras Kukreja">
-      </div>
-      <div>
-        <h2>About Me</h2>
-        <p>
-          Computer Science undergraduate focused on gameplay programming in Unity.
-          I specialize in designing clean, modular C# systems including player controllers,
-          AI state machines, combat logic, and scalable gameplay frameworks.
-        </p>
-        <p>
-          My goal is to build technically solid systems that are maintainable,
-          performance-aware, and production-ready.
-        </p>
-      </div>
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="about-image">
+      <img src="images/aboutSectionImage.png">
     </div>
-  </section>
-
-  <!-- ENGINEERING FOCUS -->
-  <section class="section container" id="focus">
-    <h2>Engineering Focus</h2>
-    <div class="skills-grid">
-      <div class="skill-card">Modular Architecture</div>
-      <div class="skill-card">Finite State Machines</div>
-      <div class="skill-card">Event-Driven Systems</div>
-      <div class="skill-card">Gameplay Framework Design</div>
-      <div class="skill-card">Performance Awareness</div>
-      <div class="skill-card">Clean Code Practices</div>
+    <div>
+      <h2>About Me</h2>
+      <p>Gameplay programmer focused on modular systems and clean architecture.</p>
     </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section container" id="skills">
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-      <div class="skills-grid">
-  <div class="skill-card">Unity (2D & 3D)</div>
-  <div class="skill-card">C# (OOP, Interfaces, Events)</div>
-  <div class="skill-card">Gameplay Systems Design</div>
-  <div class="skill-card">Finite State Machines (AI)</div>
-  <div class="skill-card">Input Systems</div>
-  <div class="skill-card">UI Systems</div>
-  <div class="skill-card">Python (Game Development)</div>
-  <div class="skill-card">Arcade Framework</div>
-  <div class="skill-card">Collision Detection</div>
-  <div class="skill-card">Game Loop Architecture</div>
-  <div class="skill-card">Vector Math & Trigonometry</div>
-  <div class="skill-card">Git & Version Control</div>
-</div>
-    </div>
-  </section>
-  <!-- PROJECTS -->
-  <section class="section container" id="projects">
-    <h2>Projects</h2>
-
-    <!-- Project 1 -->
-    <div class="project-row">
-      <div class="project-video">
-        <iframe src="https://www.youtube.com/embed/Ht4DnC66kzA" allowfullscreen></iframe>
-      </div>
-      <div class="project-info">
-        <h3>Magic Snake 2D</h3>
-        <p>
-          Grid-based gameplay system featuring structured movement logic,
-          collision handling, scoring systems, and responsive input architecture.
-        </p>
-        <ul>
-          <li>Custom grid movement implementation</li>
-          <li>Mobile & keyboard input handling</li>
-          <li>Gameplay loop & scoring system</li>
-          <li>Web deployment optimization</li>
-        </ul>
-        <a class="btn small" href="https://paras-kukreja.itch.io/magic-snake-2d" target="_blank">Play</a>
-        <a class="btn small" href="https://github.com/parask7/Magic-Snake-2D" target="_blank">Source Code</a>
-      </div>
-    </div>
-
-    <!-- Project 2 -->
-    <div class="project-row reverse">
-      <div class="project-video">
-        <iframe src="https://www.youtube.com/embed/xCdrTqlMb0U" allowfullscreen></iframe>
-      </div>
-      <div class="project-info">
-        <h3>Unity Car Controller</h3>
-        <p>
-          Physics-based vehicle controller built using Unity’s WheelCollider system,
-    featuring realistic movement, steering mechanics, and synchronized wheel visuals.
-        </p>
-        <ul>
-          <li>WheelCollider-based driving physics</li>
-    <li>Responsive keyboard input system</li>
-    <li>Real-time wheel mesh synchronization</li>
-    <li>Modular and scalable code structure</li>
-        </ul>
-        <a class="btn small" href="https://paras-kukreja.itch.io/carcontroller" target="_blank">Play</a>
-        <a class="btn small" href="https://github.com/parask7/CarController" target="_blank">Source Code</a>
-      </div>
-    </div>
-
-    <!-- Project 3 -->
-<div class="project-row">
-  <div class="project-video">
-    <!-- Replace with your gameplay video -->
-    <iframe src="https://www.youtube.com/embed/g7-nBSwbo1M" allowfullscreen></iframe>
   </div>
-  <div class="project-info">
-    <h3>2D Space Shooter (Python)</h3>
-    <p>
-      Real-time 2D shooter developed using Python with Arcade, focusing on gameplay systems,
-      enemy AI behavior, collision detection, and real-time rendering.
-    </p>
-    <ul>
-      <li>Mouse-based aiming with trigonometric rotation</li>
-      <li>Dynamic enemy spawning with tracking AI</li>
-      <li>Projectile system (player & enemy bullets)</li>
-      <li>Health system, score tracking, and UI rendering</li>
-    </ul>
-    <a class="btn small" href="https://paras-kukreja.itch.io/space-shooter" target="_blank">Play</a>
-    <a class="btn small" href="https://github.com/parask7/Space-Shooter" target="_blank">Source Code</a>
+</section>
+
+<!-- FOCUS -->
+<section class="section" id="focus">
+  <h2>Engineering Focus</h2>
+  <div class="skills-grid">
+    <div class="skill-card">Modular Architecture</div>
+    <div class="skill-card">State Machines</div>
+    <div class="skill-card">Event Systems</div>
+    <div class="skill-card">Gameplay Frameworks</div>
   </div>
-</div>
+</section>
 
-  </section>
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <h2>Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card">Unity</div>
+    <div class="skill-card">C#</div>
+    <div class="skill-card">AI</div>
+    <div class="skill-card">Physics</div>
+    <div class="skill-card">Git</div>
+  </div>
+</section>
 
-  <!-- EDUCATION -->
-  <section class="section container center" id="education">
-    <h2>Education</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>2023 – Present</h3>
-        <p><strong>B.Tech in Computer Science and Engineering</strong></p>
-        <p>Amity University Chhattisgarh</p>
-      </div>
-      <div class="timeline-item">
-        <h3>2021 – 2023</h3>
-        <p><strong>Higher Secondary Education</strong></p>
-        <p>Physics & Mathematics</p>
-      </div>
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <h2>Projects</h2>
+
+  <div class="project-row">
+    <div class="project-video">
+      <iframe src="https://www.youtube.com/embed/Ht4DnC66kzA"></iframe>
     </div>
-  </section>
+    <div class="project-info">
+      <h3>Magic Snake 2D</h3>
+      <p>Grid-based gameplay system.</p>
+    </div>
+  </div>
 
-  <!-- CONTACT -->
-  <section class="section container center" id="contact">
-    <h2>Contact</h2>
-    <p>Open to internship opportunities and collaborative projects.</p>
+</section>
 
-    <form class="contact-form" action="https://formspree.io/f/xykknqpw" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="_replyto" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn primary">Send Message</button>
-    </form>
-  </section>
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <p>Email: your@email.com</p>
+</section>
 
-  <footer>
-    © 2026 Paras Kukreja | All Rights Reserved
-  </footer>
-
-  <script src="script.js"></script>
+<footer>
+  © 2026 Paras Kukreja
+</footer>
 
 </body>
 </html>
