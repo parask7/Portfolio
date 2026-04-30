@@ -2,159 +2,233 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Paras Kukreja | Game Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Paras Kukreja | Unity Game Programmer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-body {
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --accent: #22c55e;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+}
+
+* {
   margin: 0;
-  overflow: hidden;
-  background: #0a0a0a;
-  font-family: monospace;
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* GAME WORLD */
-#game {
-  width: 2000px;
-  height: 2000px;
-  position: relative;
-  background: radial-gradient(#111, #000);
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
 
-/* PLAYER (CAR) */
-#player {
-  width: 40px;
-  height: 20px;
-  background: cyan;
-  position: absolute;
-  top: 1000px;
-  left: 1000px;
-  transform-origin: center;
-}
-
-/* ZONES */
-.zone {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border: 2px solid #00f0ff;
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(15,23,42,0.9);
+  backdrop-filter: blur(10px);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid #1f2937;
 }
 
-.zone:hover {
-  background: rgba(0,255,255,0.1);
+nav a {
+  color: var(--text);
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-/* CAMERA VIEWPORT */
-#viewport {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
+/* HERO */
+.hero {
+  padding: 120px 20px;
+  text-align: center;
 }
 
-/* UI PANEL */
-#panel {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 300px;
-  background: rgba(0,0,0,0.8);
-  border: 1px solid cyan;
-  padding: 15px;
-  display: none;
+.hero h1 {
+  font-size: 3rem;
 }
 
-/* TITLE */
-#title {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  color: cyan;
+.hero p {
+  color: var(--muted);
+  max-width: 600px;
+  margin: 20px auto;
 }
 
+.buttons a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.primary {
+  background: var(--accent);
+  color: black;
+}
+
+.secondary {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section h2 {
+  margin-bottom: 20px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+/* PROJECT */
+.project h3 {
+  margin-bottom: 10px;
+}
+
+.project a {
+  font-size: 14px;
+  color: var(--accent);
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: var(--muted);
+}
+
+/* RESPONSIVE */
+@media(max-width:600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<div id="title">PARAS KUKREJA | DRIVE TO EXPLORE</div>
+<!-- NAV -->
+<nav>
+  <div><strong>Paras Kukreja</strong></div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+  </div>
+</nav>
 
-<div id="viewport">
-  <div id="game">
+<!-- HERO -->
+<section class="hero">
+  <h1>Unity Game Programmer</h1>
+  <p>
+    I build gameplay systems, AI behavior, and scalable C# architecture 
+    for interactive and performance-driven experiences.
+  </p>
 
-    <div id="player"></div>
+  <div class="buttons">
+    <a href="#projects" class="primary">View Projects</a>
+    <a href="Resume.pdf" class="secondary">Download Resume</a>
+  </div>
+</section>
 
-    <!-- ZONES -->
-    <div class="zone" style="top:300px; left:300px;" data-info="Unity Game Programmer. Focus: Gameplay Systems, AI, C#.">
-      ABOUT
+<!-- ABOUT -->
+<section class="section" id="about">
+  <h2>About</h2>
+  <p>
+    Computer Science undergraduate focused on gameplay programming in Unity.
+    I specialize in modular systems, state machines, and clean architecture.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <h2>Technical Skills</h2>
+
+  <div class="grid grid-3">
+    <div class="card">Unity (2D/3D)</div>
+    <div class="card">C# (OOP, Events)</div>
+    <div class="card">Gameplay Systems</div>
+    <div class="card">AI State Machines</div>
+    <div class="card">Physics & Collision</div>
+    <div class="card">Git & Version Control</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <h2>Projects</h2>
+
+  <div class="grid">
+
+    <div class="card project">
+      <h3>Magic Snake 2D</h3>
+      <p>Grid-based gameplay system with input handling and scoring.</p>
+      <a href="#">Live</a>
+      <a href="#">Code</a>
     </div>
 
-    <div class="zone" style="top:1500px; left:300px;" data-info="Skills: Unity, C#, FSM, Physics, Input Systems">
-      SKILLS
+    <div class="card project">
+      <h3>Car Controller</h3>
+      <p>Physics-based vehicle system using Unity WheelCollider.</p>
+      <a href="#">Live</a>
+      <a href="#">Code</a>
     </div>
 
-    <div class="zone" style="top:300px; left:1500px;" data-info="Projects: Magic Snake, Car Controller, Space Shooter">
-      PROJECTS
-    </div>
-
-    <div class="zone" style="top:1500px; left:1500px;" data-info="Contact: github.com/parask7">
-      CONTACT
+    <div class="card project">
+      <h3>Space Shooter</h3>
+      <p>Python Arcade shooter with AI enemies and projectile systems.</p>
+      <a href="#">Live</a>
+      <a href="#">Code</a>
     </div>
 
   </div>
-</div>
+</section>
 
-<div id="panel"></div>
-
-<script>
-const player = document.getElementById("player");
-const game = document.getElementById("game");
-const panel = document.getElementById("panel");
-
-let x = 1000, y = 1000;
-let speed = 5;
-
-/* MOVEMENT */
-document.addEventListener("keydown", (e) => {
-  if (e.key === "w") y -= speed;
-  if (e.key === "s") y += speed;
-  if (e.key === "a") x -= speed;
-  if (e.key === "d") x += speed;
-
-  player.style.left = x + "px";
-  player.style.top = y + "px";
-
-  updateCamera();
-  checkZones();
-});
-
-/* CAMERA FOLLOW */
-function updateCamera() {
-  window.scrollTo(x - window.innerWidth / 2, y - window.innerHeight / 2);
-}
-
-/* ZONE DETECTION */
-function checkZones() {
-  document.querySelectorAll(".zone").forEach(zone => {
-    const rect = zone.getBoundingClientRect();
-    const playerRect = player.getBoundingClientRect();
-
-    if (
-      playerRect.left < rect.right &&
-      playerRect.right > rect.left &&
-      playerRect.top < rect.bottom &&
-      playerRect.bottom > rect.top
-    ) {
-      panel.style.display = "block";
-      panel.innerText = zone.dataset.info;
-    }
-  });
-}
-</script>
+<footer>
+  © 2026 Paras Kukreja
+</footer>
 
 </body>
 </html>
