@@ -2,128 +2,78 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Paras Kukreja | Game Programmer</title>
+<title>Paras Kukreja | Game Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
+  margin: 0;
+  overflow: hidden;
   background: #0a0a0a;
-  color: #eaeaea;
   font-family: monospace;
-  overflow-x: hidden;
+  color: white;
 }
 
-/* HUD TOP BAR */
-.hud {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 10px 20px;
-  background: rgba(0,0,0,0.8);
-  border-bottom: 1px solid #00f0ff;
+/* GAME WORLD */
+#game {
+  width: 2000px;
+  height: 2000px;
+  position: relative;
+  background: radial-gradient(#111, #000);
+}
+
+/* PLAYER (CAR) */
+#player {
+  width: 40px;
+  height: 20px;
+  background: cyan;
+  position: absolute;
+  top: 1000px;
+  left: 1000px;
+  transform-origin: center;
+}
+
+/* ZONES */
+.zone {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 2px solid #00f0ff;
   display: flex;
-  justify-content: space-between;
-  z-index: 100;
-}
-
-.hud span {
-  color: #00f0ff;
-}
-
-/* HERO / DASHBOARD */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/* SPEEDOMETER */
-.speedometer {
-  width: 200px;
-  height: 200px;
-  border: 5px solid #00f0ff;
-  border-radius: 50%;
+.zone:hover {
+  background: rgba(0,255,255,0.1);
+}
+
+/* CAMERA VIEWPORT */
+#viewport {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   position: relative;
-  margin-bottom: 20px;
 }
 
-.needle {
-  width: 2px;
-  height: 80px;
-  background: red;
-  position: absolute;
-  bottom: 50%;
-  left: 50%;
-  transform-origin: bottom;
-  transform: rotate(-120deg);
-  transition: transform 1s ease;
+/* UI PANEL */
+#panel {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 300px;
+  background: rgba(0,0,0,0.8);
+  border: 1px solid cyan;
+  padding: 15px;
+  display: none;
 }
 
-/* NAME */
-h1 {
-  font-size: 2.5rem;
-  letter-spacing: 2px;
-}
-
-/* BUTTONS */
-.menu {
-  margin-top: 20px;
-}
-
-.menu button {
-  margin: 10px;
-  padding: 10px 20px;
-  background: transparent;
-  border: 1px solid #00f0ff;
-  color: #00f0ff;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.menu button:hover {
-  background: #00f0ff;
-  color: black;
-}
-
-/* SECTIONS */
-.section {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: auto;
-}
-
-/* PROJECTS */
-.card {
-  border: 1px solid #333;
-  padding: 20px;
-  margin: 20px 0;
-  transition: 0.3s;
-}
-
-.card:hover {
-  border-color: #00f0ff;
-  transform: scale(1.02);
-}
-
-/* TERMINAL */
-.terminal {
-  background: black;
-  padding: 20px;
-  border: 1px solid #00f0ff;
-  font-size: 0.9rem;
-}
-
-/* SCROLL SMOOTH */
-html {
-  scroll-behavior: smooth;
+/* TITLE */
+#title {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: cyan;
 }
 
 </style>
@@ -131,101 +81,79 @@ html {
 
 <body>
 
-<!-- HUD -->
-<div class="hud">
-  <span>PLAYER: Paras</span>
-  <span>ROLE: Game Programmer</span>
-  <span>STATUS: ACTIVE</span>
+<div id="title">PARAS KUKREJA | DRIVE TO EXPLORE</div>
+
+<div id="viewport">
+  <div id="game">
+
+    <div id="player"></div>
+
+    <!-- ZONES -->
+    <div class="zone" style="top:300px; left:300px;" data-info="Unity Game Programmer. Focus: Gameplay Systems, AI, C#.">
+      ABOUT
+    </div>
+
+    <div class="zone" style="top:1500px; left:300px;" data-info="Skills: Unity, C#, FSM, Physics, Input Systems">
+      SKILLS
+    </div>
+
+    <div class="zone" style="top:300px; left:1500px;" data-info="Projects: Magic Snake, Car Controller, Space Shooter">
+      PROJECTS
+    </div>
+
+    <div class="zone" style="top:1500px; left:1500px;" data-info="Contact: github.com/parask7">
+      CONTACT
+    </div>
+
+  </div>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="speedometer">
-    <div class="needle" id="needle"></div>
-  </div>
-
-  <h1>PARAS KUKREJA</h1>
-
-  <div class="menu">
-    <button onclick="scrollToSection('about')">START</button>
-    <button onclick="scrollToSection('projects')">MISSIONS</button>
-    <button onclick="scrollToSection('contact')">CONTACT</button>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section" id="about">
-  <h2>> Player Profile</h2>
-  <p>
-    Unity Game Programmer focused on gameplay systems, AI behavior,
-    and scalable C# architecture. I build modular, performance-aware systems.
-  </p>
-</section>
-
-<!-- SKILLS -->
-<section class="section">
-  <h2>> Skill Tree</h2>
-  <p>
-    Unity | C# | Gameplay Systems | AI FSM | Physics | Input Systems
-  </p>
-</section>
-
-<!-- PROJECTS -->
-<section class="section" id="projects">
-  <h2>> Missions</h2>
-
-  <div class="card">
-    <h3>Mission 01: Magic Snake 2D</h3>
-    <p>Grid-based system, scoring, input handling</p>
-    <a href="https://paras-kukreja.itch.io/magic-snake-2d" target="_blank">Play</a>
-  </div>
-
-  <div class="card">
-    <h3>Mission 02: Car Controller</h3>
-    <p>WheelCollider physics system</p>
-    <a href="https://paras-kukreja.itch.io/carcontroller" target="_blank">Play</a>
-  </div>
-
-  <div class="card">
-    <h3>Mission 03: Space Shooter</h3>
-    <p>Python Arcade shooter with AI enemies</p>
-    <a href="https://paras-kukreja.itch.io/space-shooter" target="_blank">Play</a>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section" id="contact">
-  <h2>> Terminal</h2>
-
-  <div class="terminal">
-    <p>> initializing contact module...</p>
-    <p>> email: your@email.com</p>
-    <p>> github: github.com/parask7</p>
-    <p>> linkedin: linkedin.com/in/paraskukreja7</p>
-  </div>
-</section>
+<div id="panel"></div>
 
 <script>
+const player = document.getElementById("player");
+const game = document.getElementById("game");
+const panel = document.getElementById("panel");
 
-/* SPEEDOMETER ANIMATION */
-window.onload = () => {
-  setTimeout(() => {
-    document.getElementById("needle").style.transform = "rotate(120deg)";
-  }, 500);
-};
+let x = 1000, y = 1000;
+let speed = 5;
 
-/* SCROLL */
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView();
-}
-
-/* OPTIONAL: KEY CONTROLS (game feel) */
+/* MOVEMENT */
 document.addEventListener("keydown", (e) => {
-  if (e.key === "1") scrollToSection('about');
-  if (e.key === "2") scrollToSection('projects');
-  if (e.key === "3") scrollToSection('contact');
+  if (e.key === "w") y -= speed;
+  if (e.key === "s") y += speed;
+  if (e.key === "a") x -= speed;
+  if (e.key === "d") x += speed;
+
+  player.style.left = x + "px";
+  player.style.top = y + "px";
+
+  updateCamera();
+  checkZones();
 });
 
+/* CAMERA FOLLOW */
+function updateCamera() {
+  window.scrollTo(x - window.innerWidth / 2, y - window.innerHeight / 2);
+}
+
+/* ZONE DETECTION */
+function checkZones() {
+  document.querySelectorAll(".zone").forEach(zone => {
+    const rect = zone.getBoundingClientRect();
+    const playerRect = player.getBoundingClientRect();
+
+    if (
+      playerRect.left < rect.right &&
+      playerRect.right > rect.left &&
+      playerRect.top < rect.bottom &&
+      playerRect.bottom > rect.top
+    ) {
+      panel.style.display = "block";
+      panel.innerText = zone.dataset.info;
+    }
+  });
+}
 </script>
 
 </body>
